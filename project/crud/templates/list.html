@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<br>
+<a href="{% url 'item_create' %}">➕ Add New Item</a>
+
+<h2>📄 Items List</h2>
+
+<ol>
+    {% for item in items %}
+        <li>
+            <strong>{{ item.name }}</strong>
+            <br>
+            - Price: {{ item.price }}
+            <br>
+            - Description: {{ item.description }}
+            <br>
+            <a href="{% url 'item_update' item.id %}">Edit</a> |
+            <a href="{% url 'item_delete' item.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ol>
+
+{% endblock %}

@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-$+^wlsh_3!%g7%oedmo-xe6i_*m+$!38xu@sm0xod$abij1^lh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+APPEND_SLASH = True
+
 ALLOWED_HOSTS = []
 
 
@@ -67,6 +69,12 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'item_list'
+LOGOUT_REDIRECT_URL = 'login'
 
 WSGI_APPLICATION = 'project.wsgi.application'
 

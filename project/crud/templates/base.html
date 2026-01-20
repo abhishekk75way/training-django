@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Django CRUD</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post" style="display:inline; cursor: pointer;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% endif %}
+
+    <h1>Django CRUD Application</h1>
+    <hr>
+
+    {% if user.is_authenticated %}
+    👋 Hello, {{ user.username }}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
